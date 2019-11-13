@@ -1,4 +1,4 @@
-export interface ToDo {
+export interface Todo {
   value: string;
   done: boolean;
 }

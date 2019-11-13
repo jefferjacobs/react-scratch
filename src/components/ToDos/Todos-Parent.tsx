@@ -3,20 +3,14 @@ import Form from './Form';
 import List from './List';
 import { Todo } from '../../interfaces/Todos-Interface';
 
-function TodosLocal() {
+interface Props {
+  todos: Todo[];
+  setTodos: any;
+}
 
-  const initialTodos: Todo[] = [
-    {
-      value: 'Clean the kitchen',
-      done: false
-    },
-    {
-      value: 'Wash the car',
-      done: true
-    }
-  ];
+function TodosFromParent(props: Props) {
 
-  const [todos, setTodos] = useState<Todo[]>(initialTodos);
+  const { todos, setTodos } = props;
   const [inputValue, setInputValue] = useState<string>('');
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,8 +39,8 @@ function TodosLocal() {
   }
 
   return (
-    <div className="Todos-Local">
-      <h1>Todos (Local)</h1>
+    <div className="Todos-Parent">
+      <h1>Todos (Parent)</h1>
       <Form
         inputValue={inputValue}
         handleChange={handleChange}
@@ -62,4 +56,4 @@ function TodosLocal() {
   )
 }
 
-export default TodosLocal;
+export default TodosFromParent;

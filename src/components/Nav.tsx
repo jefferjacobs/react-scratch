@@ -6,10 +6,13 @@ function Nav() {
     <div className="Nav">
       <ul>
         <li>
-          <Link to="/todos-local">ToDos (Local)</Link>
+          <Link to="/todos-local">Todos (Local)</Link>
         </li>
         <li>
-          <Link to="/todos-global">ToDos (Global)</Link>
+          <Link to="/todos-global">Todos (Global)</Link>
+        </li>
+        <li>
+          <Link to="/todos-parent">Todos (Parent)</Link>
         </li>
       </ul>
     </div>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Form from './Form';
 import List from './List';
-import { ToDo } from '../../interfaces/ToDos';
+import { Todo } from '../../interfaces/Todos-Interface';
 
-function ToDosGlobal() {
+function TodosGlobal() {
 
-  const initialToDos: ToDo[] = [
+  const initialTodos: Todo[] = [
     {
       value: 'Clean the kitchen',
       done: false
@@ -16,7 +16,7 @@ function ToDosGlobal() {
     }
   ];
 
-  const [todos, setTodos] = useState<ToDo[]>(initialToDos);
+  const [todos, setTodos] = useState<Todo[]>(initialTodos);
   const [inputValue, setInputValue] = useState<string>('');
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,17 +25,17 @@ function ToDosGlobal() {
 
   const handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault();
-    const todo: ToDo = {
+    const todo: Todo = {
       value: inputValue ? inputValue : '',
       done: false
     }
-    const todosNew: ToDo[] = todos.concat(todo);
+    const todosNew: Todo[] = todos.concat(todo);
     setTodos(todosNew);
     setInputValue('');
   }
 
   const handleClick = (index: number) => {
-    const todosNew = todos.map((todo: ToDo, todoIndex: number) => {
+    const todosNew = todos.map((todo: Todo, todoIndex: number) => {
       return {
         ...todo,
         done: todoIndex === index ? !todo.done : todo.done
@@ -45,8 +45,8 @@ function ToDosGlobal() {
   }
 
   return (
-    <div className="ToDos">
-      <h1>ToDos (Global)</h1>
+    <div className="Todos-Global">
+      <h1>Todos (Global)</h1>
       <Form
         inputValue={inputValue}
         handleChange={handleChange}
@@ -62,4 +62,4 @@ function ToDosGlobal() {
   )
 }
 
-export default ToDosGlobal;
+export default TodosGlobal;

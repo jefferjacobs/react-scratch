@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Task from './Task';
-import { ToDo } from '../../interfaces/ToDos';
+import { Todo } from '../../interfaces/Todos-Interface';
 
 interface Props {
-  todos: ToDo[];
+  todos: Todo[];
   handleClick: (index: number) => void;
 }
 
