@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, Context } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.scss';
@@ -7,6 +7,8 @@ import TodosLocal from './Todos/Todos-Local';
 import TodosGlobal from './Todos/Todos-Global';
 import TodosFromParent from './Todos/Todos-Parent';
 import { Todo } from '../interfaces/Todos-Interface';
+
+const TodosContext: Context<Todo[]> = React.createContext<Todo[]>([]);
 
 function App() {
 
@@ -31,7 +33,7 @@ function App() {
           <div className="Content">
             <Switch>
               <Route path="/todos-local" component={TodosLocal} />
-              <Route path="/todos-global" component={TodosGlobal} />
+              <Route path="/todos-global" component={() => <TodosContext.Provider value={initialTodosForChild}><TodosGlobal /></TodosContext.Provider>} />
               <Route path="/todos-parent" component={() => <TodosFromParent todos={todosForChild} setTodos={setTodosForChild} /> }/>
               <Redirect to="/todos-local" />
             </Switch>

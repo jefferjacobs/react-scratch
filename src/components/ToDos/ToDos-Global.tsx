@@ -2,21 +2,10 @@ import React, { useState } from 'react';
 import Form from './Form';
 import List from './List';
 import { Todo } from '../../interfaces/Todos-Interface';
+import TodosContext from '../App';
 
 function TodosGlobal() {
 
-  const initialTodos: Todo[] = [
-    {
-      value: 'Clean the kitchen',
-      done: false
-    },
-    {
-      value: 'Wash the car',
-      done: true
-    }
-  ];
-
-  const [todos, setTodos] = useState<Todo[]>(initialTodos);
   const [inputValue, setInputValue] = useState<string>('');
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,23 +14,23 @@ function TodosGlobal() {
 
   const handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault();
-    const todo: Todo = {
-      value: inputValue ? inputValue : '',
-      done: false
-    }
-    const todosNew: Todo[] = todos.concat(todo);
-    setTodos(todosNew);
-    setInputValue('');
+    // const todo: Todo = {
+    //   value: inputValue ? inputValue : '',
+    //   done: false
+    // }
+    // const todosNew: Todo[] = todos.concat(todo);
+    // setTodos(todosNew);
+    // setInputValue('');
   }
 
   const handleClick = (index: number) => {
-    const todosNew = todos.map((todo: Todo, todoIndex: number) => {
-      return {
-        ...todo,
-        done: todoIndex === index ? !todo.done : todo.done
-      }
-    });
-    setTodos(todosNew);
+    // const todosNew = todos.map((todo: Todo, todoIndex: number) => {
+    //   return {
+    //     ...todo,
+    //     done: todoIndex === index ? !todo.done : todo.done
+    //   }
+    // });
+    // setTodos(todosNew);
   }
 
   return (
@@ -52,12 +41,9 @@ function TodosGlobal() {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
-      {todos ? (
-        <List
-          todos={todos}
-          handleClick={handleClick}
-        />
-      ) : undefined }
+      <TodosContext.Consumer>
+        { value => value }
+      </TodosContext.Consumer>
      </div>
   )
 }
