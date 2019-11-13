@@ -9,9 +9,11 @@ html, body, #root {
     background: #ccc;
   }
   .Content {
-    padding: 40px;
     h1 {
       margin: 0;
     }
   }
+}
+.Content-Padded {
+  padding: 40px;
 }

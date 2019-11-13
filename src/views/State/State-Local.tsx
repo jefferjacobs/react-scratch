@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Form from './Form';
-import List from './List';
+import Form from '../../components/Todos/Form';
+import List from '../../components/Todos/List';
 import { Todo } from '../../interfaces/Todos-Interface';
 
-function TodosLocal() {
+function StateLocal() {
 
   const initialTodos: Todo[] = [
     {
@@ -46,7 +46,7 @@ function TodosLocal() {
 
   return (
     <div className="Todos-Local">
-      <h1>Todos (Local)</h1>
+      <h1>Local State</h1>
       <Form
         inputValue={inputValue}
         handleChange={handleChange}
@@ -62,4 +62,4 @@ function TodosLocal() {
   )
 }
 
-export default TodosLocal;
+export default StateLocal;

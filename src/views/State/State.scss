@@ -1,0 +1,14 @@
+
+.State {
+  display: flex;
+  height: 100%;
+  .StateNav {
+    width: 200px;
+    background: #bbb;
+  }
+  .Content {
+    h1 {
+      margin: 0;
+    }
+  }
+}

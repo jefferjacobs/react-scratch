@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
-import Form from './Form';
-import List from './List';
+import Form from '../../components/Todos/Form';
+import List from '../../components/Todos/List';
 import { Todo } from '../../interfaces/Todos-Interface';
 
-function TodosGlobal() {
+interface Props {
+  todos: Todo[];
+  setTodos: any;
+}
 
-  const initialTodos: Todo[] = [
-    {
-      value: 'Clean the kitchen',
-      done: false
-    },
-    {
-      value: 'Wash the car',
-      done: true
-    }
-  ];
+function StateParent(props: Props) {
 
-  const [todos, setTodos] = useState<Todo[]>(initialTodos);
+  const { todos, setTodos } = props;
   const [inputValue, setInputValue] = useState<string>('');
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,8 +39,8 @@ function TodosGlobal() {
   }
 
   return (
-    <div className="Todos-Global">
-      <h1>Todos (Global)</h1>
+    <div className="Todos-Parent">
+      <h1>Parent State</h1>
       <Form
         inputValue={inputValue}
         handleChange={handleChange}
@@ -62,4 +56,4 @@ function TodosGlobal() {
   )
 }
 
-export default TodosGlobal;
+export default StateParent;
