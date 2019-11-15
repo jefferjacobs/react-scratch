@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import './App.scss';
 import Nav from './Nav';
-import State from '../views/State/State';
-import Params from '../views/Params/Params';
-import { StateContextProvider, StateContextInterface } from '../context/todo-context';
-import { Todo } from '../interfaces/Todos-Interface';
-import HttpCall from '../views/HttpCall/Http';
+import State from '../State/State';
+import Params from '../Params/Params';
+import { StateContextProvider, StateContextInterface } from '../../context/todo-context';
+import { Todo } from '../../interfaces/Todos-Interface';
+import HttpCall from '../HttpCall/Http';
 
 function App() {
 
@@ -27,10 +27,6 @@ function App() {
     todos: todos,
     setTodos: setTodos,
   }
-
-  useEffect(() => {
-    console.log('effect');
-  })
 
   return (
     <div className="App">
