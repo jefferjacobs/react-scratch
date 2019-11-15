@@ -14,6 +14,12 @@ function ParamsNav() {
         <li>
           <Link to="/params/bro">Bro</Link>
         </li>
+        <li>
+          <Link to="/params/cool?testQuery=awesome">1 Query Param</Link>
+        </li>
+        <li>
+          <Link to="/params/cool?testQuery=awesome&testQuery2=radical">2 Query Param</Link>
+        </li>
       </ul>
     </div>
   )
