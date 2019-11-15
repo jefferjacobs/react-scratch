@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.scss';
 import Nav from './Nav';
 import State from '../views/State/State';
 import Params from '../views/Params/Params';
-import { StateContextProvider } from '../context/todo-context';
+import { StateContextProvider, StateContextInterface } from '../context/todo-context';
 import { Todo } from '../interfaces/Todos-Interface';
 
 function App() {
@@ -21,9 +21,15 @@ function App() {
     }
   ];
 
+  const [todos, setTodos] = useState(initialTodos);
+  const todosContext: StateContextInterface = {
+    todos: todos,
+    setTodos: setTodos,
+  }
+
   return (
     <div className="App">
-      <StateContextProvider value={initialTodos}>
+      <StateContextProvider value={todosContext}>
         <Router>
           <Fragment>
             <Nav />

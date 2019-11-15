@@ -2,7 +2,7 @@ import React, { useState, Fragment } from 'react';
 import Form from '../../components/Todos/Form';
 import List from '../../components/Todos/List';
 import { Todo } from '../../interfaces/Todos-Interface';
-import { StateContextConsumer } from '../../context/todo-context';
+import { StateContextConsumer, StateContextInterface } from '../../context/todo-context';
 
 function StateGlobal() {
 
@@ -12,60 +12,55 @@ function StateGlobal() {
     setInputValue(evt.target.value);
   }
 
-  const handleSubmit = (evt: React.FormEvent) => {
-    // evt.preventDefault();
-    // const todo: Todo = {
-    //   value: inputValue ? inputValue : '',
-    //   done: false
-    // }
-    // const todosNew: Todo[] = todos.concat(todo);
-    // setTodos(todosNew);
-    // setInputValue('');
+  const handleSubmit = (evt: React.FormEvent, todosContext: StateContextInterface | undefined) => {
+    if (!todosContext) {
+      return;
+    }
+    evt.preventDefault();
+    const todo: Todo = {
+      value: inputValue ? inputValue : '',
+      done: false
+    }
+    const todosNew: Todo[] = todosContext.todos.concat(todo);
+    todosContext.setTodos(todosNew);
+    setInputValue('');
   }
 
-  const handleClick = (index: number) => {
-    // const todosNew = todos.map((todo: Todo, todoIndex: number) => {
-    //   return {
-    //     ...todo,
-    //     done: todoIndex === index ? !todo.done : todo.done
-    //   }
-    // });
-    // setTodos(todosNew);
+  const handleClick = (index: number, todosContext: StateContextInterface) => {
+    if (!todosContext) {
+      return;
+    }
+    const todosNew = todosContext.todos.map((todo: Todo, todoIndex: number) => {
+      return {
+        ...todo,
+        done: todoIndex === index ? !todo.done : todo.done
+      }
+    });
+    todosContext.setTodos(todosNew);
   }
 
   return (
     <div className="Todos-Global">
       <h1>Global State</h1>
       <StateContextConsumer>
-        { todos => {
+        { todosContext => {
           return (
             <Fragment>
               <Form
                 inputValue={inputValue}
                 handleChange={handleChange}
-                handleSubmit={handleSubmit}
+                handleSubmit={evt => handleSubmit(evt, todosContext)}
               />
-              { todos ? (
+              { todosContext && todosContext.todos ? (
                 <List
-                  todos={todos}
-                  handleClick={handleClick}
+                  todos={todosContext.todos}
+                  handleClick={evt => handleClick(evt, todosContext)}
                 />
               ) : undefined }
             </Fragment>
           )
         }}
       </StateContextConsumer>
-      {/* <Form
-        inputValue={inputValue}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
-      {todos ? (
-        <List
-          todos={todos}
-          handleClick={handleClick}
-        />
-      ) : undefined } */}
      </div>
   )
 }
