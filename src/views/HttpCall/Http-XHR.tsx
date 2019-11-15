@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { StarWarsCharacter } from '../../interfaces/StarWars';
+import { StarWarsCharacterInterface } from '../../interfaces/StarWars';
+import StarWarsCharacter from '../../components/StarWars/Character';
+import StarWarsCharacterList from '../../components/StarWars/CharacterList';
+import Loading from '../../components/Loading';
 
 function HttpXHR() {
 
-  const [characters, setCharacters] = useState<StarWarsCharacter[]>([]);
+  const [characters, setCharacters] = useState<StarWarsCharacterInterface[]>([]);
   const [loadingCharacters, setLoadingCharacters] = useState<boolean>(false);
 
   useEffect(() => {
@@ -26,17 +29,9 @@ function HttpXHR() {
     <div className="HttpXHR Content-Padded">
       <h1>Http XHR</h1>
       { loadingCharacters ? (
-        <div>Loading...</div>
+        <Loading/>
       ) : undefined}
-      {characters.map((character: StarWarsCharacter, index: number) => {
-        return (
-          <div className="Character" key={index} style={{marginTop: '20px'}}>
-            <div><strong>{ character.name }</strong></div>
-            <div>{ character.gender }</div>
-            <div>{ character.birth_year }</div>
-          </div>
-        )
-      })}
+      <StarWarsCharacterList characters={characters} />
     </div>
   )
 }

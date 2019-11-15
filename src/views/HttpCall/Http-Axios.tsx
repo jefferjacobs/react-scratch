@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import { StarWarsCharacter } from '../../interfaces/StarWars';
+import { StarWarsCharacterInterface } from '../../interfaces/StarWars';
+import Loading from '../../components/Loading';
+import StarWarsCharacterList from '../../components/StarWars/CharacterList';
 
 function HttpAxios() {
 
-  const [characters, setCharacters] = useState<StarWarsCharacter[]>([]);
+  const [characters, setCharacters] = useState<StarWarsCharacterInterface[]>([]);
   const [loadingCharacters, setLoadingCharacters] = useState<boolean>(false);
 
   useEffect(() => {
@@ -23,17 +25,9 @@ function HttpAxios() {
     <div className="HttpXHR Content-Padded">
       <h1>Http Axios</h1>
       { loadingCharacters ? (
-        <div>Loading...</div>
+        <Loading />
       ) : undefined}
-      {characters.map((character: StarWarsCharacter, index: number) => {
-        return (
-          <div className="Character" key={index} style={{marginTop: '20px'}}>
-            <div><strong>{ character.name }</strong></div>
-            <div>{ character.gender }</div>
-            <div>{ character.birth_year }</div>
-          </div>
-        )
-      })}
+      <StarWarsCharacterList characters={characters} />
     </div>
   )
 }
