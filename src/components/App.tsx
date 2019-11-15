@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect, EffectCallback } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.scss';
@@ -7,6 +7,7 @@ import State from '../views/State/State';
 import Params from '../views/Params/Params';
 import { StateContextProvider, StateContextInterface } from '../context/todo-context';
 import { Todo } from '../interfaces/Todos-Interface';
+import HttpCall from '../views/HttpCall/Http';
 
 function App() {
 
@@ -27,6 +28,10 @@ function App() {
     setTodos: setTodos,
   }
 
+  useEffect(() => {
+    console.log('effect');
+  })
+
   return (
     <div className="App">
       <StateContextProvider value={todosContext}>
@@ -37,6 +42,7 @@ function App() {
               <Switch>
                 <Route path="/state" component={State} />
                 <Route path="/params" component={Params} />
+                <Route path="/http" component={HttpCall} />
                 <Redirect to="/state" />
               </Switch>
             </div>

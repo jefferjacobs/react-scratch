@@ -11,6 +11,9 @@ function Nav() {
         <li>
           <Link to="/params">Params</Link>
         </li>
+        <li>
+          <Link to="/http">Http Call</Link>
+        </li>
       </ul>
     </div>
   )
