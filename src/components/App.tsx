@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import './App.scss';
 import Nav from './Nav';
 import State from '../views/State/State';
+import Params from '../views/Params/Params';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
           <div className="Content">
             <Switch>
               <Route path="/state" component={State} />
+              <Route path="/params" component={Params} />
               <Redirect to="/state" />
             </Switch>
           </div>

@@ -24,7 +24,7 @@ function State() {
   const [todosForChild, setTodosForChild] = useState<Todo[]>(initialTodosForChild);
 
   return (
-    <div className="State">
+    <div className="State Content-Wrapper">
       <Router>
         <Fragment>
           <StateNav />

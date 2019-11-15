@@ -8,6 +8,9 @@ function Nav() {
         <li>
           <Link to="/state">State</Link>
         </li>
+        <li>
+          <Link to="/params">Params</Link>
+        </li>
       </ul>
     </div>
   )

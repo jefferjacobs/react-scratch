@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function StateNav() {
   return (
-    <div className="StateNav">
+    <div className="StateNav Nav-Sub">
       <ul>
         <li>
           <Link to="/state/local">Local</Link>
