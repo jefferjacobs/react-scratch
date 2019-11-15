@@ -26,7 +26,7 @@ function StateGlobal() {
     setInputValue('');
   }
 
-  const handleClick = (index: number, todosContext: StateContextInterface) => {
+  const handleClick = (index: number, todosContext: StateContextInterface | undefined) => {
     if (!todosContext) {
       return;
     }
@@ -51,12 +51,10 @@ function StateGlobal() {
                 handleChange={handleChange}
                 handleSubmit={evt => handleSubmit(evt, todosContext)}
               />
-              { todosContext && todosContext.todos ? (
-                <List
-                  todos={todosContext.todos}
-                  handleClick={evt => handleClick(evt, todosContext)}
-                />
-              ) : undefined }
+              <List
+                todos={todosContext ? todosContext.todos : []}
+                handleClick={evt => handleClick(evt, todosContext)}
+              />
             </Fragment>
           )
         }}
