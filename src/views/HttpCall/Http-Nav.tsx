@@ -11,6 +11,9 @@ function HttpNav() {
         <li>
           <Link to="/http/axios">Axios</Link>
         </li>
+        <li>
+          <Link to="/http/axios-instance">Axios Instance</Link>
+        </li>
       </ul>
     </div>
   )

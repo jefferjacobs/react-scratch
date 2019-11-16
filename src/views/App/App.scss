@@ -3,10 +3,11 @@ html, body, #root {
 }
 .App {
   display: flex;
-  height: 100%;
+  min-height: 100%;
   .Nav {
     width: 200px;
     background: #ccc;
+    flex-shrink: 0;
   }
   .Content {
     h1 {
@@ -29,4 +30,5 @@ html, body, #root {
 .Nav-Sub {
   width: 200px;
   background: #bbb;
+  flex-shrink: 0;
 }

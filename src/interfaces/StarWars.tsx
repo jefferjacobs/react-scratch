@@ -3,3 +3,10 @@ export interface StarWarsCharacterInterface {
   gender: string;
   birth_year: string;
 }
+
+export interface StarWarsFilmInterface {
+  title: string;
+  opening_crawl: string;
+  director: string;
+  created: string;
+}
