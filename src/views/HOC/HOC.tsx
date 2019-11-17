@@ -1,5 +1,4 @@
 import React from 'react';
-import addProps from './HOC-Wrapper';
 
 interface Props {
   testProp: string;

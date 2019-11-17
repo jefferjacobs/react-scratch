@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { StarWarsCharacterInterface } from '../../interfaces/StarWars';
-import StarWarsCharacter from '../../components/StarWars/Character';
 import StarWarsCharacterList from '../../components/StarWars/CharacterList';
 import Loading from '../../components/Loading';
 

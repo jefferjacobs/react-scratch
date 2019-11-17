@@ -66,8 +66,7 @@ function App() {
                     <Route path={route.path} component={route.component} />
                   )
                 })}
-                
-                <Redirect to="/state" />
+                <Redirect to={appRoutes[0].path} />
               </Switch>
             </div>
           </Fragment>
