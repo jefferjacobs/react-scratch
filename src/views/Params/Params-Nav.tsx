@@ -1,24 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function ParamsNav() {
   return (
     <div className="ParamsNav Nav-Sub">
-      <ul>
+      <ul className="Nav-Links">
         <li>
-          <Link to="/params/cool">Cool</Link>
+          <NavLink to="/params/cool">Cool</NavLink>
         </li>
         <li>
-          <Link to="/params/things">Things</Link>
+          <NavLink to="/params/things">Things</NavLink>
         </li>
         <li>
-          <Link to="/params/bro">Bro</Link>
+          <NavLink to="/params/bro">Bro</NavLink>
         </li>
         <li>
-          <Link to="/params/cool?testQuery=awesome">1 Query Param</Link>
+          <NavLink to="/params/one-query?testQuery=awesome">1 Query Param</NavLink>
         </li>
         <li>
-          <Link to="/params/cool?testQuery=awesome&testQuery2=radical">2 Query Param</Link>
+          <NavLink to="/params/two-query?testQuery=awesome&testQuery2=radical">2 Query Param</NavLink>
         </li>
       </ul>
     </div>

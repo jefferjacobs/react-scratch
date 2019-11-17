@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import './State.scss';
 import { Todo } from '../../interfaces/Todos-Interface';
@@ -25,7 +25,7 @@ function State() {
 
   return (
     <div className="State Content-Wrapper">
-      <Router>
+      <BrowserRouter>
         <Fragment>
           <StateNav />
           <div className="Content Content-Padded">
@@ -37,7 +37,7 @@ function State() {
             </Switch>
           </div>
         </Fragment>
-      </Router>
+      </BrowserRouter>
     </div>
   )
 }

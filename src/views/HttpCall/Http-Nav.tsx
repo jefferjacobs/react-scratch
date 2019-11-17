@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function HttpNav() {
   return (
     <div className="HttpNav Nav-Sub">
-      <ul>
+      <ul className="Nav-Links">
         <li>
-          <Link to="/http/xhr">XHR</Link>
+          <NavLink to="/http/xhr">XHR</NavLink>
         </li>
         <li>
-          <Link to="/http/axios">Axios</Link>
+          <NavLink to="/http/axios">Axios</NavLink>
         </li>
         <li>
-          <Link to="/http/axios-instance">Axios Instance</Link>
+          <NavLink to="/http/axios-instance">Axios Instance</NavLink>
         </li>
       </ul>
     </div>

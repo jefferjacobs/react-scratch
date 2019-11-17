@@ -1,19 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { appRoutes } from './App';
+import { RouteConfig } from '../../interfaces/Routes';
 
 function Nav() {
   return (
     <div className="Nav">
-      <ul>
-        <li>
-          <Link to="/state">State</Link>
-        </li>
-        <li>
-          <Link to="/params">Params</Link>
-        </li>
-        <li>
-          <Link to="/http">Http Call</Link>
-        </li>
+      <ul className="Nav-Links">
+        { appRoutes.map((route: RouteConfig) => {
+          return (
+            <li>
+              <NavLink to={route.path}>{route.name}</NavLink>
+            </li>
+          )
+        })}
       </ul>
     </div>
   )

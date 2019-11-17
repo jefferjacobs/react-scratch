@@ -6,7 +6,7 @@ import Loading from '../../components/Loading';
 import StarWarsCharacterList from '../../components/StarWars/CharacterList';
 import StarWarsFilmList from '../../components/StarWars/FilmList';
 
-var instance = axios.create({
+const instance = axios.create({
   baseURL: 'https://swapi.co/api',
 });
 

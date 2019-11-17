@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function StateNav() {
   return (
     <div className="StateNav Nav-Sub">
-      <ul>
+      <ul className="Nav-Links">
         <li>
-          <Link to="/state/local">Local</Link>
+          <NavLink to="/state/local">Local</NavLink>
         </li>
         <li>
-          <Link to="/state/parent">Parent</Link>
+          <NavLink to="/state/parent">Parent</NavLink>
         </li>
         <li>
-          <Link to="/state/global">Global</Link>
+          <NavLink to="/state/global">Global</NavLink>
         </li>
       </ul>
     </div>
