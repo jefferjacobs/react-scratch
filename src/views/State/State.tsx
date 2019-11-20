@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import './State.scss';
 import { Todo } from '../../interfaces/Todos-Interface';
@@ -25,19 +25,17 @@ function State() {
 
   return (
     <div className="State Content-Wrapper">
-      <BrowserRouter>
-        <Fragment>
-          <StateNav />
-          <div className="Content Content-Padded">
-            <Switch>
-              <Route path="/state/local" component={StateLocal} />
-              <Route path="/state/parent" component={() => <StateParent todos={todosForChild} setTodos={setTodosForChild} /> }/>
-              <Route path="/state/global" component={StateGlobal} />
-              <Redirect to="/state/local" />
-            </Switch>
-          </div>
-        </Fragment>
-      </BrowserRouter>
+      <Fragment>
+        <StateNav />
+        <div className="Content Content-Padded">
+          <Switch>
+            <Route path="/state/local" component={StateLocal} />
+            <Route path="/state/parent" component={() => <StateParent todos={todosForChild} setTodos={setTodosForChild} /> }/>
+            <Route path="/state/global" component={StateGlobal} />
+            <Redirect to="/state/local" />
+          </Switch>
+        </div>
+      </Fragment>
     </div>
   )
 }
