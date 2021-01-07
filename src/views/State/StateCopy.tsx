@@ -24,7 +24,7 @@ function State() {
     },
   ];
 
-  const [todosForChild, setTodosForChild] = useState<Todo[]>(initialTodosForChild);
+  const [todosForChild, seTodosForChild] = useState<Todo[]>(initialTodosForChild);
 
   return (
     <div className="State Content-Wrapper">
@@ -35,7 +35,7 @@ function State() {
             <Route path="/state/local" component={StateLocal} />
             <Route
               path="/state/parent"
-              component={() => <StateParent todos={todosForChild} setTodos={setTodosForChil} />}
+              component={() => <StateParent todos={todosForChild} setTodos={seTodosForChild} />}
             />
             <Route path="/state/global" component={StateGlobal} />
             <Redirect to="/state/local" />
