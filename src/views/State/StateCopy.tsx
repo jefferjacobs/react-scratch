@@ -29,7 +29,7 @@ function State() {
   return (
     <div className="State Content-Wrapper">
       <Fragment>
-        <StateNav />
+        <StateNav
         <div className="Content Content-Padded">
           <Switch>
             <Route path="/state/local" component={StateLocal} />
