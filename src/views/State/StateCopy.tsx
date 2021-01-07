@@ -35,7 +35,7 @@ function State() {
             <Route path="/state/local" component={StateLocal} />
             <Route
               path="/state/parent"
-              component={() => <StateParent todos={todosForChild} setTodos={setTodosForChild} />}
+              component={() => <StateParent todos={todosForChild} setTodos={setTodosForChil} />}
             />
             <Route path="/state/global" component={StateGlobal} />
             <Redirect to="/state/local" />
