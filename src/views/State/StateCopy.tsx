@@ -10,6 +10,8 @@ import StateNav from './State-Nav';
 
 const isCompanyDomain = () => true;
 
+const isLocalstorageTest = () => localStorage.getItem('test');
+
 function State() {
   const initialTodosForChild: Todo[] = [
     {
