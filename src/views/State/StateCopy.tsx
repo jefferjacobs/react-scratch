@@ -39,6 +39,7 @@ function State() {
             />
             <Route path="/state/global" component={StateGlobal} />
             <Redirect to="/state/local" />
+            <DOESNOTEXIST />
           </Switch>
         </div>
       </Fragment>
