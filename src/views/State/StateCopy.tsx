@@ -8,6 +8,8 @@ import StateGlobal from './State-Global';
 import StateParent from './State-Parent';
 import StateNav from './State-Nav';
 
+const isCompanyDomain = () => true;
+
 function State() {
   const initialTodosForChild: Todo[] = [
     {
