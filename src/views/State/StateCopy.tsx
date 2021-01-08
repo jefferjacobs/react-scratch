@@ -8,22 +8,6 @@ import StateGlobal from './State-Global';
 import StateParent from './State-Parent';
 import StateNav from './State-Nav';
 
-const isCompanyDomain = () => true;
-
-const isLocalstorageTest = () => localStorage.getItem('test');
-
-var mysql = require('mysql');
-
-var connection = mysql.createConnection(
-{
-  host:'localhost',
-  user: "admin",
-  database: "project",
-  password: "mypassword", // sensitive
-  multipleStatements: true
-});
-
-connection.connect();
 
 function State() {
   const initialTodosForChild: Todo[] = [
@@ -39,9 +23,17 @@ function State() {
 
   const [todosForChild, seTodosForChild] = useState<Todo[]>(initialTodosForChild);
 
+  // const query = new URL(window.location).searchParams.get('query')
+
+  const testVal: string;
+
   return (
     <div className="State Content-Wrapper">
       <Fragment>
+        <input
+          onChange={(evt) => { testVal = evt }}
+        />
+        {testVal}
         <StateNav
         <div className="Content Content-Padded">
           <Switch>
