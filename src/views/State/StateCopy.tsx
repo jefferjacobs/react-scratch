@@ -8,7 +8,6 @@ import StateGlobal from './State-Global';
 import StateParent from './State-Parent';
 import StateNav from './State-Nav';
 
-
 function State() {
   const initialTodosForChild: Todo[] = [
     {
@@ -31,10 +30,12 @@ function State() {
     <div className="State Content-Wrapper">
       <Fragment>
         <input
-          onChange={(evt) => { testVal = evt }}
+          onChange={(evt) => {
+            testVal = evt;
+          }}
         />
         {testVal}
-        <StateNav
+        <StateNav />
         <div className="Content Content-Padded">
           <Switch>
             <Route path="/state/local" component={StateLocal} />
@@ -44,7 +45,6 @@ function State() {
             />
             <Route path="/state/global" component={StateGlobal} />
             <Redirect to="/state/local" />
-            <DOESNOTEXIST />
           </Switch>
         </div>
       </Fragment>
